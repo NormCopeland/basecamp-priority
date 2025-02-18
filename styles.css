@@ -1,14 +1,16 @@
 .priority-container {
-    position: relative;
-    display: inline-block !important;
-    margin-left: 8px;
-    vertical-align: middle;
-    width: 24px; /* Ensure width */
+    display: inline-flex !important;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    vertical-align: text-top;
+    height: 100%;
 }
 
 .priority-form {
-    display: inline-block !important;
-    width: 100%; /* Take full container width */
+    display: inline-flex !important;
+    align-items: center;
+    height: 100%;
 }
 
 .priority-button {
@@ -24,17 +26,9 @@
     border: none;
     font-size: 18px;
     line-height: 1;
-    min-width: 24px;
-    vertical-align: middle;
-    position: relative;
-    top: -1px; /* Small adjustment for vertical alignment */
+    margin: 0;
 }
 
 .priority-button:hover {
     color: #1d2d35;
-}
-
-.checkbox__content {
-    display: flex !important;
-    align-items: center;
 }

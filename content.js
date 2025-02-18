@@ -58,31 +58,48 @@ function createPriorityButton(taskElement) {
   
 function addPriorityButtons() {
     console.log('Running addPriorityButtons');
-    // Find all todo items that don't already have priority buttons
     const todos = document.querySelectorAll('.recording.todo:not(.has-priority-button)');
     console.log('Found todos:', todos.length);
     
     todos.forEach(todo => {
         console.log('Processing todo:', todo);
+        console.log('Todo structure:', todo.innerHTML);
+        
         const priorityContainer = createPriorityButton(todo);
         if (priorityContainer) {
             todo.classList.add('has-priority-button');
             
-            // Find the todo content wrapper
-            const todoContentWrapper = todo.querySelector('.checkbox__content');
-            console.log('Found content wrapper:', todoContentWrapper ? 'Yes' : 'No');
-            if (todoContentWrapper) {
-                todoContentWrapper.appendChild(priorityContainer);
-                console.log('Priority button added to todo');
+            // Try different possible selectors
+            const todoContent = todo.querySelector('.todo-content');
+            const todoContentText = todo.querySelector('.todo-content__text');
+            const checkbox = todo.querySelector('.checkbox__content');
+            
+            console.log('Found elements:', {
+                todoContent: !!todoContent,
+                todoContentText: !!todoContentText,
+                checkbox: !!checkbox
+            });
+            
+            // Try inserting into the checkbox content
+            if (checkbox) {
+                checkbox.insertBefore(priorityContainer, checkbox.firstChild);
+                console.log('Priority button added to checkbox content');
+            } else if (todoContent) {
+                todoContent.insertBefore(priorityContainer, todoContent.firstChild);
+                console.log('Priority button added to todo content');
+            } else if (todoContentText) {
+                todoContentText.parentNode.insertBefore(priorityContainer, todoContentText);
+                console.log('Priority button added before text content');
             } else {
-                console.log('No content wrapper found for todo');
+                todo.insertBefore(priorityContainer, todo.firstChild);
+                console.log('Priority button added to todo');
             }
         } else {
             console.log('No priority container created for todo');
         }
     });
 }
-  
+
 // Watch for DOM changes
 const observer = new MutationObserver(mutations => {
     console.log('DOM mutation observed');
