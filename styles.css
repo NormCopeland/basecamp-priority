@@ -1,16 +1,12 @@
 .priority-container {
     display: inline-flex !important;
     align-items: center;
-    margin: 0;
-    padding: 0;
-    vertical-align: text-top;
-    height: 100%;
+    margin-right: 4px;
+    vertical-align: middle;
 }
 
 .priority-form {
     display: inline-flex !important;
-    align-items: center;
-    height: 100%;
 }
 
 .priority-button {
@@ -26,9 +22,15 @@
     border: none;
     font-size: 18px;
     line-height: 1;
-    margin: 0;
+    min-width: 24px;
 }
 
 .priority-button:hover {
     color: #1d2d35;
+}
+
+/* Add this to ensure proper alignment within indent div */
+.indent {
+    display: flex !important;
+    align-items: center;
 }

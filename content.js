@@ -63,36 +63,18 @@ function addPriorityButtons() {
     
     todos.forEach(todo => {
         console.log('Processing todo:', todo);
-        console.log('Todo structure:', todo.innerHTML);
-        
         const priorityContainer = createPriorityButton(todo);
         if (priorityContainer) {
             todo.classList.add('has-priority-button');
             
-            // Try different possible selectors
-            const todoContent = todo.querySelector('.todo-content');
-            const todoContentText = todo.querySelector('.todo-content__text');
-            const checkbox = todo.querySelector('.checkbox__content');
-            
-            console.log('Found elements:', {
-                todoContent: !!todoContent,
-                todoContentText: !!todoContentText,
-                checkbox: !!checkbox
-            });
-            
-            // Try inserting into the checkbox content
-            if (checkbox) {
-                checkbox.insertBefore(priorityContainer, checkbox.firstChild);
-                console.log('Priority button added to checkbox content');
-            } else if (todoContent) {
-                todoContent.insertBefore(priorityContainer, todoContent.firstChild);
-                console.log('Priority button added to todo content');
-            } else if (todoContentText) {
-                todoContentText.parentNode.insertBefore(priorityContainer, todoContentText);
-                console.log('Priority button added before text content');
+            // Look for the indent div
+            const indentDiv = todo.querySelector('.indent');
+            if (indentDiv) {
+                // Insert at the beginning of the indent div
+                indentDiv.insertBefore(priorityContainer, indentDiv.firstChild);
+                console.log('Priority button added to indent div');
             } else {
-                todo.insertBefore(priorityContainer, todo.firstChild);
-                console.log('Priority button added to todo');
+                console.log('No indent div found');
             }
         } else {
             console.log('No priority container created for todo');
