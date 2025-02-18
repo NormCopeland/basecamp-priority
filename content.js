@@ -1,8 +1,3 @@
-console.log('Basecamp Priority Extension loaded');
-alert('Basecamp Priority Extension loaded'); // Temporary debug line
-
-// Rest of your existing code...
-
 function createPriorityButton(taskElement) {
     console.log('Creating priority button for task:', taskElement);
     // Get the recording ID from the task element
@@ -63,26 +58,30 @@ function createPriorityButton(taskElement) {
   
 function addPriorityButtons() {
     console.log('Running addPriorityButtons');
+    // Find all todo items that don't already have priority buttons
     const todos = document.querySelectorAll('.recording.todo:not(.has-priority-button)');
     console.log('Found todos:', todos.length);
     
     todos.forEach(todo => {
+        console.log('Processing todo:', todo);
         const priorityContainer = createPriorityButton(todo);
         if (priorityContainer) {
             todo.classList.add('has-priority-button');
             
-            // Find the container with the icons (where Clockify is)
-            const iconGroup = todo.querySelector('.recording__icons, .recording__actions');
-            if (iconGroup) {
-                iconGroup.insertBefore(priorityContainer, iconGroup.firstChild);
-                console.log('Added priority button to icon group');
+            // Find the todo content wrapper
+            const todoContentWrapper = todo.querySelector('.checkbox__content');
+            console.log('Found content wrapper:', todoContentWrapper ? 'Yes' : 'No');
+            if (todoContentWrapper) {
+                todoContentWrapper.appendChild(priorityContainer);
+                console.log('Priority button added to todo');
             } else {
-                console.log('Could not find icon group for todo:', todo);
+                console.log('No content wrapper found for todo');
             }
+        } else {
+            console.log('No priority container created for todo');
         }
     });
 }
-
   
 // Watch for DOM changes
 const observer = new MutationObserver(mutations => {
