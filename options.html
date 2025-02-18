@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basecamp Priority Settings</title>
+  <style>
+    body {
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 20px;
+    }
+    button {
+      background: #1d2d35;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background: #2c3e48;
+    }
+    .status {
+      margin-top: 10px;
+      color: green;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Basecamp Priority Settings</h2>
+    <label for="accountId">Basecamp Account ID:</label>
+    <input type="text" id="accountId" placeholder="Enter your Basecamp account ID">
+    <button id="save">Save</button>
+    <div id="status" class="status">Settings saved!</div>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>
