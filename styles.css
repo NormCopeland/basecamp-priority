@@ -1,0 +1,27 @@
+.priority-container {
+    display: inline-flex;
+    align-items: center;
+}
+
+.priority-form {
+    display: inline-flex;
+}
+
+.priority-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+}
+
+.priority-button:hover {
+    color: #1d2d35;
+}

@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name": "Basecamp Priority Everywhere",
+    "version": "1.0",
+    "permissions": ["activeTab"],
+    "host_permissions": ["*://*.basecamp.com/*"],
+    "content_scripts": [{
+      "matches": ["*://*.basecamp.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }]
+  }
+  
