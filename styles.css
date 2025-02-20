@@ -29,8 +29,26 @@
     color: #1d2d35;
 }
 
-/* Add this to ensure proper alignment within indent div */
+.priority-container {
+    display: inline-flex !important;
+    align-items: center !important;
+    margin-right: 4px;
+    flex-shrink: 0 !important;
+    width: 24px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important; /* Center vertically */
+    transform: translateY(-50%) !important; /* Adjust for perfect centering */
+}
+
 .indent {
     display: flex !important;
-    align-items: center;
+    align-items: center !important;
+    position: relative !important;
+    padding-left: 28px !important;
+}
+
+.recording.todo {
+    display: flex !important;
+    align-items: center !important;
 }
