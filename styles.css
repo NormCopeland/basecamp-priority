@@ -52,3 +52,29 @@
     display: flex !important;
     align-items: center !important;
 }
+
+.action-sheet__action--prioritize {
+    white-space: nowrap;
+    font-size: var(--txt-small);
+    line-height: 1.2;
+    padding: 0.5rem 1rem 0.5rem 2rem;
+    position: relative;
+    display: block;
+    color: inherit;
+    border-radius: var(--radius-lg);
+}
+
+.action-sheet__action--prioritize::before {
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    content: "";
+    height: 16px;
+    left: 0.5em;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+    width: 16px;
+    background-image: url('chrome-extension://__MSG_@@extension_id__/icons/prioritize.svg');
+}
+

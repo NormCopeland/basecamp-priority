@@ -1,27 +1,42 @@
 {
-    "host_permissions": [
-      "*://*.basecamp.com/*"
-    ],
-    "content_scripts": [
-      {
-        "matches": [
-          "*://*.basecamp.com/*"
-        ],
-        "js": [
-          "content.js"
-        ],
-        "css": [
-          "styles.css"
-        ]
+  "name": "Basecamp Priority Everywhere",
+  "manifest_version": 3,
+  "description": "Adds Basecamp's priority feature to all task views, including todo lists, search results, and drag handle menus.",
+  "version": "1.0",
+  "icons": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+  },
+  "action": {
+      "default_icon": {
+          "16": "icons/icon16.png",
+          "32": "icons/icon32.png",
+          "48": "icons/icon48.png",
+          "128": "icons/icon128.png"
       }
-    ],
-    "manifest_version": 3,
-    "permissions": [
+  },
+  "options_page": "options.html",
+  "host_permissions": [
+      "*://*.basecamp.com/*"
+  ],
+  "content_scripts": [
+      {
+          "matches": ["*://*.basecamp.com/*"],
+          "js": ["content.js"],
+          "css": ["styles.css"]
+      }
+  ],
+  "web_accessible_resources": [
+      {
+          "matches": ["*://*.basecamp.com/*"],
+          "resources": ["icons/*"]
+      }
+  ],
+  "permissions": [
       "activeTab",
-      "storage"
-    ],
-    "name": "Basecamp Priority Everywhere",
-    "version": "1.0",
-    "options_page": "options.html"
-  }
-  
+      "storage",
+      "webNavigation"
+  ]
+}
